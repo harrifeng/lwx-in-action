@@ -2,12 +2,12 @@
 
 /* declare first, so that main can know about function fn,
    because fn is implemented after main*/
-long fn(int n);
+int fn(int n);
 
 int main(int argc, char *argv[])
 {
     int n;
-    long sum = 0;
+    int sum = 0;
     scanf("%d", &n);
     int i = 1;
     while (i <= n) {
@@ -19,9 +19,11 @@ int main(int argc, char *argv[])
     return 0;
 }
 
-long fn(int n) {
-    if (n == 0) {
-        return 1;
+int fn(int n) {
+    int count = 1;
+    int i = 1;
+    for (i = 1; i <= n; i++) {
+        count = count * i;
     }
-    return fn(n-1) * n;
+    return count;
 }
