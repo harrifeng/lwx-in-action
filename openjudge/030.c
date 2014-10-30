@@ -12,7 +12,7 @@
 
 #include <stdio.h>
 
-unsigned long long fermat(int n) {
+long long fermat(int n) {
     /* For recursion, please alway write the condition to exit */
     /* otherwise the program will loop for ever!!! */
     if (n == 0) {
@@ -25,9 +25,14 @@ int main(int argc, char *argv[])
 {
     int i;
     int k;
+    /*****************************************************/
+    /* The k should be smaller than 6, because           */
+    /* the biggest longlong value is 9223372036854775807 */
+    /* fermat(6) is bigger than 9223372036854775807      */
+    /*****************************************************/
     scanf("%d", &k);
     for (i = 0; i < k; i++) {
-        printf("%llu\n", fermat(i));
+        printf("%lld\n", fermat(i));
     }
     return 0;
 }
