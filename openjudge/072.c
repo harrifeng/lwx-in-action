@@ -28,6 +28,6 @@ int main(int argc, char *argv[])
             }
         }
     }
-    /* sqrt是开方,需要引入math头文件
+    /* sqrt是开方,需要引入math头文件 */
     printf("%.4f\n", sqrt(maxLen));
 }
