@@ -8,6 +8,10 @@ private:
 public:
     Point():x(0.0), y(2.0){};
     Point(double dx, double dy):x(dx), y(dy){};
+    Point(const Point& other) {
+        x = other.x;
+        y = other.y;
+    }
 };
 
 class Line{
@@ -16,6 +20,10 @@ private:
     Point b;
 public:
     Line(Point pa, Point pb): a(pa), b(pb){}
+    Line(const Line& other) {
+        a = Point(other.a);
+        b = Point(other.b);
+    }
 };
 class Triangle {
 private:
@@ -24,6 +32,11 @@ private:
     Line l3;
 public:
     Triangle(Line la, Line lb, Line lc): l1(la), l2(lb), l3(lc) {}
+    // Triangle(const Triangle& other) {
+    //     l1 = Line(other.l1);
+    //     l2 = Line(other.l2);
+    //     l3 = Line(other.l3);
+    // }
     bool isTriangle();
     double triangleSize();
     void display();
