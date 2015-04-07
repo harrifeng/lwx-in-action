@@ -2,7 +2,7 @@
 using namespace std;
 
 class Point {
-private:
+public:
     double x;
     double y;
 public:
@@ -15,10 +15,11 @@ public:
 };
 
 class Line{
-private:
+public:
     Point a;
     Point b;
 public:
+    Line():a(Point()), b(Point()){};
     Line(Point pa, Point pb): a(pa), b(pb){}
     Line(const Line& other) {
         a = Point(other.a);
@@ -26,17 +27,17 @@ public:
     }
 };
 class Triangle {
-private:
+public:
     Line l1;
     Line l2;
     Line l3;
 public:
     Triangle(Line la, Line lb, Line lc): l1(la), l2(lb), l3(lc) {}
-    // Triangle(const Triangle& other) {
-    //     l1 = Line(other.l1);
-    //     l2 = Line(other.l2);
-    //     l3 = Line(other.l3);
-    // }
+    Triangle(const Triangle& other) {
+        l1 = Line(other.l1);
+        l2 = Line(other.l2);
+        l3 = Line(other.l3);
+    }
     bool isTriangle();
     double triangleSize();
     void display();
@@ -62,7 +63,7 @@ void Triangle::display() {
 
 int main(int argc, char *argv[])
 {
-    Point pa(0, 0);
+    Point pa(30, 0);
     Point pb(1, 2);
     Point pc(5, 2);
 
@@ -71,5 +72,7 @@ int main(int argc, char *argv[])
     Line lc(pc, pa);
 
     Triangle t(la, lb, lc);
+    Triangle t2(t);
+    cout << t2.l1.a.x << endl;
     return 0;
 }
